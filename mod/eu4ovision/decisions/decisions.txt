@@ -1,0 +1,76 @@
+country_decisions = {
+    found_eurovision = {
+        major = yes
+        potential = {
+            ai = no
+            capital_scope = {
+                continent = europe
+            }
+            NOT = { has_country_flag = eurovision_host }
+            NOT = { has_global_flag = eurovision_founded }
+        }
+        allow = {
+            treasury = 500
+        }
+        effect = {
+            set_country_flag = eurovision_host
+            set_country_flag = eurovision_big_five
+            set_global_flag = eurovision_founded
+            add_treasury = -500
+        }
+    }
+
+    join_eurovision_big_five = {
+        major = yes
+        potential = {
+            capital_scope = {
+                continent = europe
+            }
+            NOT = { has_country_flag = eurovision_host }
+            NOT = { has_country_flag = eurovision_member }
+            NOT = {
+                calc_true_if = {
+                    all_country = {
+                        has_country_flag = eurovision_big_five
+                    }
+                    amount = 5
+                }
+            }
+            has_global_flag = eurovision_founded
+        }
+        allow = {
+            treasury = 200
+        }
+        effect = {
+            set_country_flag = eurovision_member
+            set_country_flag = eurovision_big_five
+            add_treasury = -200
+        }
+    }
+
+    join_eurovision = {
+        potential = {
+            capital_scope = {
+                continent = europe
+            }
+            NOT = { has_country_flag = eurovision_host }
+            NOT = { has_country_flag = eurovision_member }
+            has_global_flag = eurovision_founded
+        }
+            NOT = {
+                calc_true_if = {
+                    all_country = {
+                        has_country_flag = eurovision_big_five
+                    }
+                    amount = 20
+                }
+            }
+        allow = {
+            treasury = 50
+        }
+        effect = {
+            set_country_flag = eurovision_member
+            add_treasury = -50
+        }
+    }
+}
