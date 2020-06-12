@@ -46,6 +46,9 @@ country_decisions = {
             set_country_flag = eurovision_big_five
             add_treasury = -200
         }
+        ai_will_do = {
+        	factor = 1
+        }
     }
 
     join_eurovision = {
@@ -71,6 +74,9 @@ country_decisions = {
         effect = {
             set_country_flag = eurovision_member
             add_treasury = -50
+        }
+        ai_will_do = {
+         	factor = 1
         }
     }
 }
